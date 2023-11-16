@@ -1,5 +1,11 @@
 #include "shell.h"
 
+/**
+ *  builtin_cd - function got to folder
+ *  argv: parameter
+ *  Return: 0 success or -1
+*/
+
 int builtin_cd(char **argv)
 {
 	if (argv[0] == NULL)
@@ -10,12 +16,16 @@ int builtin_cd(char **argv)
 	if (chdir(argv[0]) != 0)
 	{
 		perror("cd");
-		return -1;
+		return (-1);
 	}
 
-	return 0;
+	return (0);
 }
-
+/**
+ *  builtin_env - function check env
+ *  argv: parameter
+ *  Return: -1 success
+*/
 int builtin_env(char **argv)
 {
 	int itr = 0;
@@ -29,7 +39,11 @@ int builtin_env(char **argv)
 	}
 	return (-1);
 }
-
+/**
+ *  builtin_exit - function exit
+ *  argv: parameter
+ *  Return: 3 success
+*/
 int builtin_exit(char **argv)
 {
 	if (argv[0])
